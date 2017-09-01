@@ -1,5 +1,6 @@
 {-# language BangPatterns #-}
 {-# language RankNTypes #-}
+{-# options_ghc -Wno-orphans #-}
 
 module Data.Primitive.SmallArray.Extra
     ( newSmallArray_

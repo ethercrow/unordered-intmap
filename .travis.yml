@@ -1,0 +1,24 @@
+sudo: false
+language: generic
+
+cache:
+  directories:
+  - $HOME/.stack
+  - $HOME/.local/bin
+
+jobs:
+  include:
+    - stage: "Prepare"
+      script: stack setup
+    - stage: "Build and test"
+      script: stack test
+
+addons:
+  apt:
+    packages:
+    - libgmp-dev
+    sources: hvr-ghc
+
+before_install:
+ - mkdir -p $HOME/.local/bin
+ - curl -L https://www.stackage.org/stack/linux-x86_64 | tar xz --wildcards --strip-components=1 -C ~/.local/bin '*/stack'

@@ -95,7 +95,6 @@ import Data.Semigroup (Semigroup((<>)))
 import Control.DeepSeq (NFData(rnf))
 import Control.Monad.ST (ST, runST)
 import Data.Bits ((.&.), (.|.), complement, popCount)
-import Data.Data hiding (Typeable)
 import qualified Data.Foldable as F
 import qualified Data.List as L
 import GHC.Exts ((==#), build, reallyUnsafePtrEquality#, Word(W#), Int(I#), uncheckedShiftL#, uncheckedShiftRL#)

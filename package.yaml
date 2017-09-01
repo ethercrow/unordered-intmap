@@ -14,8 +14,20 @@ dependencies:
 - deepseq
 - primitive >= 0.6.2
 
+ghc-options: -Wall -Werror -ferror-spans
+
 library:
     source-dirs: src
     exposed-modules:
     - Data.Unordered.IntMap
-    ghc-options: -Wall -ferror-spans
+
+tests:
+    props:
+        source-dirs: test
+        main: UnorderedIntMapProperties.hs
+        dependencies:
+            - unordered-intmap
+            - containers
+            - QuickCheck
+            - tasty
+            - tasty-quickcheck
