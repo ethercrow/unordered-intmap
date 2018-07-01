@@ -1,3 +1,4 @@
+{-# language CPP #-}
 {-# language BangPatterns #-}
 {-# language RankNTypes #-}
 {-# options_ghc -Wno-orphans #-}
@@ -40,9 +41,12 @@ strictMapSmallArray f = \ ary ->
              go ary mary (i+1) n
 {-# inline strictMapSmallArray #-}
 
+#if MIN_VERSION_primitive(0,6,4)
+#else
 runSmallArray :: (forall s . ST s (SmallMutableArray s e)) -> SmallArray e
 runSmallArray act = runST $ act >>= unsafeFreezeSmallArray
 {-# inline runSmallArray #-}
+#endif
 
 deleteSmallArray :: SmallArray e -> Int -> SmallArray e
 deleteSmallArray ary idx = runST (deleteSmallArrayM ary idx)
