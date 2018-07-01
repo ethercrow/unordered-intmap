@@ -1,6 +1,6 @@
 name:                unordered-intmap
 synopsis: A specialization of `HashMap Int v`
-version:             0.1.0.0
+version:             0.1.1
 homepage:            https://github.com/ethercrow/unordered-intmap
 license:             BSD3
 author:              Dmitry Ivanov
